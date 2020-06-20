@@ -1,9 +1,8 @@
 require_relative "lib/bowling"
 require_relative "lib/score"
 
-game = Bowling.new
-score = Score.new
-game.bowPrint
+game = Score.new
+game.bow_print
 while game.turn < 10
 	puts "Primer tiro.. "
 	tiro1 = gets.chomp
@@ -15,9 +14,9 @@ while game.turn < 10
 	end
 	game.calculate
 	system "clear"
-	game.bowPrint
+	game.bow_print
 end
-pointE = game.rounds(9)
+pointE = game.rounds[9]
 if (pointE[0] + pointE[1]) == 10
 	tiro2 = 0
 	puts "tiro extra.. "
@@ -29,5 +28,5 @@ if (pointE[0] + pointE[1]) == 10
 	game.capture(tiro1, tiro2)
 	game.calculate
 	system "clear"
-	score.bowPrint
+	game.bow_print
 end
