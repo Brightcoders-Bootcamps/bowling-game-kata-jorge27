@@ -1,38 +1,27 @@
+#
+# Score print the punctuation board
+#
 class Score < Bowling
-	def initialize
-		
-	end
-
-	def bowling_print
-    self.bowling_print_lines
-    self.jump
+	def bow_print
+		print_lines
     (1..10).each {|turno| print "|%2s         |" % [turno] }
     print "\n"
     (0..9).each {|turno| print '|  %3s | %3s|' % [@rounds[turno][0], @rounds[turno][1]] }
-    self.jump
-    self.bowling_print_lines
-    self.bowling_print_spaces
+    print_lines
+    bowling_print_spaces
     (0..9).each {|turno| print '|    %3s    |' % [@points[turno]]}
-    self.bowling_print_spaces('|', '_')
-  end
+    puts ''
+    bowling_print_spaces('|', '_')
+	end
 
-  def bowling_print_lines(line = '-')
-    (0..130).each {print line}
-  end
-
+  private
   def bowling_print_spaces(v_line = '|', space = ' ')
-    self.jump
-    (0..9).each do
-      print v_line
-      (0..10).each { print space }
-      print '|'
-    end
+    10.times{ print v_line + (space * 11) + v_line }
     print "\n"
   end
 
-  def jump
+  def print_lines
     print "\n"
+    puts '-' * 130
   end
-	
-	
 end
